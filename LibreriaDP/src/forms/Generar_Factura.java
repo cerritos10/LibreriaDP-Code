@@ -1119,8 +1119,8 @@ conexion conn=new conexion();
         });
     }
     public void cancelar(){
-        txtCliente.setText("");
         txtProducto.setText("");
+        txtCliente.setText("");
         txtCant.setText("");
         txtPrecio.setText("");
         txtDescuento.setText("");
