@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteUsuarios" language="groovy" pageWidth="792" pageHeight="612" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3921e0c5-8baf-42e1-bdb8-09c2b35ec2a1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     usuario."id_usuario" AS usuario_id_usuario,
+     usuario."nombre_usuario" AS usuario_nombre_usuario,
+     usuario."contraseña" AS usuario_contraseña,
+     cargo."nombre_cargo" AS cargo_nombre_cargo
+FROM
+     "public"."cargo" cargo INNER JOIN "public"."usuario" usuario ON cargo."id_cargo" = usuario."id_cargo"]]>
+	</queryString>
+	<field name="usuario_id_usuario" class="java.lang.Integer"/>
+	<field name="usuario_nombre_usuario" class="java.lang.String"/>
+	<field name="usuario_contraseña" class="java.lang.String"/>
+	<field name="cargo_nombre_cargo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="115" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="557" height="77" uuid="b5322e89-1504-4b00-b326-34c9d3131520"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="24" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA['Libreria "Divina Providencia"']]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="77" width="557" height="38" uuid="e1d065bb-c736-48a8-9a43-71ac9574c813"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="24" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Reporte de Usuarios"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="557" y="-4" width="195" height="119" uuid="84de8434-292d-4af4-86fd-ea76b581ed07"/>
+				<imageExpression><![CDATA["/home/cerritos/LibreriaDP/LibreriaDP/src/images/logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="36" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="285" y="0" width="100" height="20" uuid="028ddec5-204b-4fdd-8e37-38cd2b788b64"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="181" y="0" width="104" height="20" uuid="fe7f3431-8d74-44ac-8466-9c1ef14531f2"/>
+				<textFieldExpression><![CDATA["Fecha de creacion:"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="100" height="20" uuid="c704dea1-10e7-430a-bd5e-23efa84b4fb3"/>
+				<text><![CDATA[ID de Usuario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="357" height="20" uuid="f665a8f4-2087-4de5-acf6-332ccd88976f"/>
+				<text><![CDATA[Nombre de Usuario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="457" y="1" width="120" height="20" uuid="cb078ccb-4f38-4566-9431-9953cf6d1fda"/>
+				<text><![CDATA[Cargo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="553d4c61-eb94-45a4-baa6-09879cf26415"/>
+				<textFieldExpression><![CDATA[$F{usuario_id_usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="357" height="20" uuid="cd106fd2-ab7a-47b6-bdd3-322dd86037ee"/>
+				<textFieldExpression><![CDATA[$F{usuario_nombre_usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="457" y="0" width="120" height="20" uuid="44333dda-76fc-4fcf-a1aa-571621eb7a23"/>
+				<textFieldExpression><![CDATA[$F{cargo_nombre_cargo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="305" y="0" width="80" height="20" uuid="5174d41d-33e9-4e14-b680-4016523064ee"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="385" y="0" width="40" height="20" uuid="bd3102bc-a7c2-41c5-91f4-bada28fb67b9"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="1" splitType="Stretch"/>
+	</summary>
+</jasperReport>

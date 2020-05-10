@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteCategoria" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3c9dac12-0763-4fe9-9c2e-d370875f1fa0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#00FFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dataset1" uuid="37d13b93-f1e2-491f-99e8-3c7d29ee8bdd"/>
+	<subDataset name="New Dataset 1" uuid="02a43529-f353-4a2e-ae2d-b9903fb23dc7">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     categoria."id_categoria" AS categoria_id_categoria,
+     categoria."nombre_categoria" AS categoria_nombre_categoria
+FROM
+     "public"."categoria" categoria]]>
+		</queryString>
+		<field name="categoria_nombre_categoria" class="java.lang.String"/>
+		<group name="categoria_nombre_categoria">
+			<groupExpression><![CDATA[$F{categoria_nombre_categoria}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT
+     categoria."id_categoria" AS categoria_id_categoria,
+     categoria."nombre_categoria" AS categoria_nombre_categoria
+FROM
+     "public"."categoria" categoria]]>
+	</queryString>
+	<field name="categoria_id_categoria" class="java.lang.Integer"/>
+	<field name="categoria_nombre_categoria" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="89" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="425" height="38" uuid="385afe96-06dc-4145-8621-7f24e1fc30bd"/>
+				<textElement>
+					<font size="30" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Libreria Divina Providencia"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="447" y="0" width="125" height="79" uuid="c31e00c7-e5bf-42d1-8a5f-7fa03ee308d0"/>
+				<imageExpression><![CDATA["/home/cerritos/LibreriaDP/LibreriaDP/src/images/logo.png"]]></imageExpression>
+			</image>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="334" y="59" width="113" height="20" uuid="ff33fb35-b688-4890-b872-10476c0b1b82"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="38" width="320" height="41" uuid="3c61917c-e92a-4cb9-ac16-920103555d95"/>
+				<textElement>
+					<font size="28"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Reporte Categoria"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="1" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" forecolor="#000000" backcolor="#22214A" uuid="70c19f2b-534b-434a-9173-c72cc4a6d8c6"/>
+				<text><![CDATA[ID_Categoria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="234" height="20" forecolor="#000000" backcolor="#22214A" uuid="53b14fb1-0d06-4fdb-99ee-48694170956b"/>
+				<text><![CDATA[Nombre Categoria]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="e0084e72-e532-4b94-bed0-0a5d254242cd"/>
+				<textFieldExpression><![CDATA[$F{categoria_id_categoria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="234" height="20" uuid="ceb0fd37-edfd-408f-82a8-c3b869b3082f"/>
+				<textFieldExpression><![CDATA[$F{categoria_nombre_categoria}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="200" y="25" width="80" height="20" uuid="ca74a7b5-19ab-43cb-a049-939b182f7280"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="280" y="25" width="40" height="20" uuid="4769ff26-fce4-419c-bed5-06a758c9407a"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="1" splitType="Stretch"/>
+	</summary>
+</jasperReport>

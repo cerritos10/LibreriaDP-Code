@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e40d6f3d-6c31-4a33-a65f-fab1f1d55b96">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CodigoFactura" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CodigoCliente" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select detalleventa.id_detalle_venta, cliente.nombre,producto.nombre_producto, tipoventa.nombre_tipo_venta, 
+facturaventa.fecha_venta, detalleventa.cantidad, 
+detalleventa.precio, detalleventa.precio*detalleventa.cantidad as ventagrabada, 
+(detalleventa.precio*detalleventa.cantidad)*0.13 as iva, detalleventa.total as totalfac
+from detalleventa
+inner join producto on detalleventa.id_producto=producto.id_producto
+inner join facturaventa on detalleventa.id_factura_venta=facturaventa.id_factura_venta
+inner join cliente on facturaventa.id_cliente=cliente.id_cliente
+inner join tipoventa on facturaventa.id_tipo_venta=tipoventa.id_tipo_venta
+where facturaventa.id_factura_venta=$P{CodigoFactura} and cliente.id_cliente=$P{CodigoCliente}]]>
+	</queryString>
+	<field name="id_detalle_venta" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="nombre_producto" class="java.lang.String"/>
+	<field name="nombre_tipo_venta" class="java.lang.String"/>
+	<field name="fecha_venta" class="java.lang.String"/>
+	<field name="cantidad" class="java.lang.Integer"/>
+	<field name="precio" class="java.math.BigDecimal"/>
+	<field name="ventagrabada" class="java.math.BigDecimal"/>
+	<field name="iva" class="java.math.BigDecimal"/>
+	<field name="totalfac" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="ff41b571-03d4-4ce6-8bf5-3b959393299e"/>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="443" y="0" width="100" height="20" uuid="96ea2b59-725b-470c-b935-11ab51762527"/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="270f3b56-5d4f-409a-9859-ed17a6a1b61d"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="543" y="0" width="100" height="20" uuid="8f19d2b0-52fd-4ffb-a2cd-fb97ac41050f"/>
+				<textFieldExpression><![CDATA[$F{fecha_venta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="187" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="cbc551b0-b66b-4291-8cb6-9b6196ec1135"/>
+				<text><![CDATA[Cantidad:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="0" width="100" height="20" uuid="f3ccc547-5e9e-4317-9f59-c3c1de2bdedd"/>
+				<text><![CDATA[Descripcion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="328" y="0" width="100" height="20" uuid="00e5d943-4c00-4126-aa17-99b92dc35f9a"/>
+				<text><![CDATA[Precio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="443" y="61" width="100" height="20" uuid="8e9f20a1-4a05-441d-bc84-1d03cb2356ee"/>
+				<text><![CDATA[Suma:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="443" y="97" width="100" height="20" uuid="93d134a4-9de0-4680-b1c8-52339b8dbafb"/>
+				<text><![CDATA[IVA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="443" y="130" width="100" height="20" uuid="0b9db7ec-c79e-47c8-ac5c-cbe44acdc6b6"/>
+				<text><![CDATA[Subtotal:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="443" y="166" width="100" height="20" uuid="ae3e2cf4-7565-4bc3-aa3c-4f3f48b322b3"/>
+				<text><![CDATA[Venta Total:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="168" y="20" width="100" height="20" uuid="dc58fcac-fc00-46a0-bf88-e3326ccdb901"/>
+				<textFieldExpression><![CDATA[$F{nombre_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="20" width="100" height="20" uuid="c19e26a6-beb3-422c-8a04-968b6cdad414"/>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="328" y="20" width="100" height="20" uuid="3deeacc6-b998-454f-8b4c-e0c0c5b837a5"/>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="543" y="20" width="100" height="20" uuid="e1122641-10cb-4063-90c3-e30a77edf8a9"/>
+				<textFieldExpression><![CDATA[$F{ventagrabada}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="543" y="0" width="100" height="20" uuid="d2de955a-5a7b-40f7-85fb-bcdd951cb40e"/>
+				<text><![CDATA[Venta Grabada:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="543" y="166" width="100" height="20" uuid="070528d1-6585-42fb-a89d-f0988123de4c"/>
+				<textFieldExpression><![CDATA[$F{totalfac}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="543" y="97" width="100" height="20" uuid="ad398f87-e0ff-483f-bd99-bdfcb5039156"/>
+				<textFieldExpression><![CDATA[$F{iva}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
