@@ -554,7 +554,7 @@ conexion conn=new conexion();
                 verClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(verCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 50, 30));
+        jPanel1.add(verCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 50, 30));
 
         verProducto.setBackground(new java.awt.Color(79, 85, 137));
         verProducto.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
