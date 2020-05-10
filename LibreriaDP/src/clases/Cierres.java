@@ -5,15 +5,15 @@
  */
 package clases;
 
-import form.Categoria;
-import form.Clientes;
-import form.Compra;
-import form.Crear_Factura;
-import form.Generar_Factura;
-import form.Marca;
-import form.Productos;
-import form.Usuarios;
-import form.Proveedores;
+import forms.Categoria;
+import forms.Clientes;
+import forms.Compra;
+import forms.Crear_Factura;
+import forms.Generar_Factura;
+import forms.Marca;
+import forms.Productos;
+import forms.Usuarios;
+import forms.Proveedores;
 
 /**
  *

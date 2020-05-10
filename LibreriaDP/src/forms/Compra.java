@@ -1,5 +1,5 @@
 
-package form;
+package forms;
 
 import clases.Existencias;
 import clases.conexion;

@@ -5,7 +5,7 @@
  */
 package libreriadp;
 
-import form.login1;
+import forms.login1;
 import javax.imageio.ImageIO;
 
 

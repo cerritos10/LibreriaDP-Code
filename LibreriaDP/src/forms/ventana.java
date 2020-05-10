@@ -8,7 +8,7 @@
  *
  * Created on 15-04-2013, 11:50:03 PM
  */
-package form;
+package forms;
 
 import clases.cargar;
 import com.sun.awt.AWTUtilities;

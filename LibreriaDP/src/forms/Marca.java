@@ -1,4 +1,4 @@
-package form;
+package forms;
 
 import clases.ExistenciasMarca;
 import clases.conexion;

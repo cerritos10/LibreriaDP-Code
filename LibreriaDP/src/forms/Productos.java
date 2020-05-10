@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package form;
+package forms;
 
 import clases.Existencias;
 import clases.conexion;
-import static form.login1.cn;
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.ResultSet;
