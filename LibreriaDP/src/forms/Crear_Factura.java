@@ -102,7 +102,7 @@ conexion conn=new conexion();
                 btnAnularActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAnular, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 570, 175, 40));
+        jPanel1.add(btnAnular, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 590, 175, 40));
 
         jTable1.setBackground(new java.awt.Color(45, 55, 99));
         jTable1.setForeground(new java.awt.Color(255, 255, 255));
