@@ -121,7 +121,6 @@ conexion conn=new conexion();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1080, 680));
 
         jPanel1.setBackground(new java.awt.Color(34, 33, 74));
         jPanel1.setPreferredSize(new java.awt.Dimension(1080, 670));

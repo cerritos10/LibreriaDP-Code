@@ -4,11 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/Generar_Factura.java</file>
+            <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/Crear_Factura.java</file>
+            <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/Productos.java</file>
             <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/MenuEmp.java</file>
+            <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/MenuAdmin.java</file>
+            <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/Marca.java</file>
             <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/libreriadp/LibreriaDP.java</file>
             <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/clases/conexion.java</file>
             <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/Venta_Comercial.java</file>
-            <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/Opcion_Factura.java</file>
         </group>
     </open-files>
 </project-private>

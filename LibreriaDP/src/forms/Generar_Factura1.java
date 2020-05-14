@@ -105,15 +105,25 @@ conexion conn=new conexion();
         jLabel10 = new javax.swing.JLabel();
         btnReporte = new javax.swing.JButton();
         ver = new javax.swing.JPanel();
+        ver1 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        TablaCliente1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaCliente = new javax.swing.JTable();
+        ver3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         TablaProducto = new javax.swing.JTable();
-        ver3 = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tablaRegistros = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaFacturas = new javax.swing.JTable();
+        verr = new javax.swing.JButton();
+        ver2 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        TablaCliente2 = new javax.swing.JTable();
+        ver4 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        TablaCliente3 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        TablaIngresos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -201,7 +211,7 @@ conexion conn=new conexion();
                 btnSaveActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 400, 175, 40));
+        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 430, 175, 40));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(204, 204, 204));
@@ -463,6 +473,31 @@ conexion conn=new conexion();
         ver.setBackground(new java.awt.Color(0, 204, 51));
         ver.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        ver1.setBackground(new java.awt.Color(0, 204, 51));
+        ver1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TablaCliente1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        TablaCliente1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaCliente1MouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(TablaCliente1);
+
+        ver1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-5, -2, 380, 200));
+
+        ver.add(ver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 380, 210));
+
         TablaCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -481,9 +516,12 @@ conexion conn=new conexion();
         });
         jScrollPane2.setViewportView(TablaCliente);
 
-        ver.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-5, -2, 380, 200));
+        ver.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 130));
 
-        jPanel1.add(ver, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, 380, 210));
+        jPanel1.add(ver, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 380, 140));
+
+        ver3.setBackground(new java.awt.Color(102, 0, 102));
+        ver3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TablaProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -503,27 +541,9 @@ conexion conn=new conexion();
         });
         jScrollPane3.setViewportView(TablaProducto);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 370, 210));
+        ver3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 310, 130));
 
-        ver3.setBackground(new java.awt.Color(0, 204, 51));
-        ver3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        tablaRegistros.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane4.setViewportView(tablaRegistros);
-
-        ver3.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 60, 670, 150));
-
-        jPanel1.add(ver3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 670, 150));
+        jPanel1.add(ver3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 180, 320, 150));
 
         TablaFacturas.setBackground(new java.awt.Color(45, 55, 99));
         TablaFacturas.setForeground(new java.awt.Color(255, 255, 255));
@@ -549,9 +569,98 @@ conexion conn=new conexion();
         });
         jScrollPane1.setViewportView(TablaFacturas);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 600, 120));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 270, 120));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
+        verr.setBackground(new java.awt.Color(79, 85, 137));
+        verr.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        verr.setForeground(new java.awt.Color(204, 204, 204));
+        verr.setText("VER");
+        verr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(169, 80, 161), 3));
+        verr.setContentAreaFilled(false);
+        verr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verrActionPerformed(evt);
+            }
+        });
+        jPanel1.add(verr, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 50, 30));
+
+        ver2.setBackground(new java.awt.Color(204, 204, 0));
+        ver2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TablaCliente2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        TablaCliente2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaCliente2MouseClicked(evt);
+            }
+        });
+        jScrollPane6.setViewportView(TablaCliente2);
+
+        ver2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 140));
+
+        ver4.setBackground(new java.awt.Color(0, 204, 51));
+        ver4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TablaCliente3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        TablaCliente3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaCliente3MouseClicked(evt);
+            }
+        });
+        jScrollPane7.setViewportView(TablaCliente3);
+
+        ver4.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-5, -2, 380, 200));
+
+        ver2.add(ver4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 380, 210));
+
+        jPanel1.add(ver2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 390, 180));
+
+        TablaIngresos.setBackground(new java.awt.Color(45, 55, 99));
+        TablaIngresos.setForeground(new java.awt.Color(255, 255, 255));
+        TablaIngresos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        TablaIngresos.setFocusable(false);
+        TablaIngresos.setGridColor(new java.awt.Color(153, 153, 153));
+        TablaIngresos.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        TablaIngresos.setRowHeight(25);
+        TablaIngresos.setSelectionBackground(new java.awt.Color(47, 63, 128));
+        TablaIngresos.setShowVerticalLines(false);
+        TablaIngresos.getTableHeader().setReorderingAllowed(false);
+        TablaIngresos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TablaIngresosMousePressed(evt);
+            }
+        });
+        jScrollPane4.setViewportView(TablaIngresos);
+
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, 320, 130));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -643,10 +752,6 @@ conexion conn=new conexion();
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void TablaFacturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaFacturasMouseClicked
-
-    }//GEN-LAST:event_TablaFacturasMouseClicked
-
     private void txtCantKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCantKeyTyped
@@ -676,7 +781,8 @@ conexion conn=new conexion();
         String nombrecolumnas[]={"Id","Producto","Marca","Stock","Precio"};
         String data[][]=new String [0][0];
         ver.setVisible(true);
-        
+        ver2.setVisible(false);
+        ver3.setVisible(false);
         TablaCliente.setModel(new DefaultTableModel(data,nombrecolumnas));
               
         
@@ -700,6 +806,7 @@ conexion conn=new conexion();
         String data[][]=new String [0][0];
         TablaProducto.setModel(new DefaultTableModel(data,nombrecolumnas));
         ver.setVisible(false);
+        ver2.setVisible(false);
 //        TablaMuestras.getTableHeader().setVisible(false);
         ListarFactura();
     }//GEN-LAST:event_verFacturaActionPerformed
@@ -869,6 +976,32 @@ conexion conn=new conexion();
             txtPrecio.setText(pre);
         }        
     }//GEN-LAST:event_TablaClienteMouseClicked
+
+    private void TablaCliente1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaCliente1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TablaCliente1MouseClicked
+
+    private void TablaCliente2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaCliente2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TablaCliente2MouseClicked
+
+    private void TablaCliente3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaCliente3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TablaCliente3MouseClicked
+
+    private void verrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verrActionPerformed
+        ver2.setVisible(true);
+        ver.setVisible(false);
+        ver3.setVisible(false);
+    }//GEN-LAST:event_verrActionPerformed
+
+    private void TablaFacturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaFacturasMouseClicked
+
+    }//GEN-LAST:event_TablaFacturasMouseClicked
+
+    private void TablaIngresosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaIngresosMousePressed
+      
+    }//GEN-LAST:event_TablaIngresosMousePressed
        public void ListarProducto(){
          String sql="select id_producto,nombre_producto,nombre_marca,stock,precio_venta from producto\n" +
                         "inner join marca on marca.id_marca=producto.id_marca";
@@ -1033,7 +1166,11 @@ conexion conn=new conexion();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaCliente;
+    private javax.swing.JTable TablaCliente1;
+    private javax.swing.JTable TablaCliente2;
+    private javax.swing.JTable TablaCliente3;
     private javax.swing.JTable TablaFacturas;
+    private javax.swing.JTable TablaIngresos;
     private javax.swing.JTable TablaProducto;
     private javax.swing.JButton aggFactura;
     private javax.swing.JButton aggProducto;
@@ -1058,6 +1195,9 @@ conexion conn=new conexion();
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator12;
@@ -1071,7 +1211,6 @@ conexion conn=new conexion();
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTable tablaRegistros;
     private javax.swing.JTextField txtBucarFac;
     private javax.swing.JTextField txtBucarProducto;
     private javax.swing.JTextField txtCant;
@@ -1084,8 +1223,12 @@ conexion conn=new conexion();
     private javax.swing.JTextField txtSub;
     private javax.swing.JTextField txtTotal;
     private javax.swing.JPanel ver;
+    private javax.swing.JPanel ver1;
+    private javax.swing.JPanel ver2;
     private javax.swing.JPanel ver3;
+    private javax.swing.JPanel ver4;
     private javax.swing.JButton verFactura;
     private javax.swing.JButton verProducto;
+    private javax.swing.JButton verr;
     // End of variables declaration//GEN-END:variables
 }
