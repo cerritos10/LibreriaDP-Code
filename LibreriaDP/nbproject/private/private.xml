@@ -5,13 +5,12 @@
         <group>
             <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/Generar_Factura.java</file>
             <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/Crear_Factura.java</file>
-            <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/Productos.java</file>
-            <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/MenuEmp.java</file>
             <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/MenuAdmin.java</file>
-            <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/Marca.java</file>
+            <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/Opcion_Producto.java</file>
             <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/libreriadp/LibreriaDP.java</file>
             <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/clases/conexion.java</file>
-            <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/Venta_Comercial.java</file>
+            <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/Generar_Factura1.java</file>
+            <file>file:/home/cerritos/LibreriaDP/LibreriaDP/src/forms/Compra.java</file>
         </group>
     </open-files>
 </project-private>

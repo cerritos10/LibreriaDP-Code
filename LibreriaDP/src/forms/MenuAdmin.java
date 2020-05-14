@@ -5,6 +5,7 @@
  */
 package forms;
 
+
 import java.awt.Color;
 import java.awt.Desktop;
 import java.io.IOException;
@@ -15,6 +16,7 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import javax.swing.JOptionPane;
+import vista.VistaPrincipal;
 /**
  *
  * @author cerritos
@@ -64,7 +66,7 @@ public void run(){
         lblcargo = new javax.swing.JLabel();
         txtNav = new javax.swing.JButton();
         btnCal = new javax.swing.JButton();
-        btnProductos = new javax.swing.JButton();
+        btnRespaldos = new javax.swing.JButton();
         btnRegistros = new javax.swing.JButton();
         btnReportes = new javax.swing.JButton();
         btnFactura = new javax.swing.JButton();
@@ -75,6 +77,8 @@ public void run(){
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        btnProductos = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -119,20 +123,20 @@ public void run(){
         });
         lblnombre.add(btnCal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
 
-        btnProductos.setBackground(new java.awt.Color(79, 85, 137));
-        btnProductos.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        btnProductos.setForeground(new java.awt.Color(204, 204, 204));
-        btnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/productoslista.png"))); // NOI18N
-        btnProductos.setText("    PRODUCTOS");
-        btnProductos.setBorder(null);
-        btnProductos.setContentAreaFilled(false);
-        btnProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnProductos.addActionListener(new java.awt.event.ActionListener() {
+        btnRespaldos.setBackground(new java.awt.Color(79, 85, 137));
+        btnRespaldos.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnRespaldos.setForeground(new java.awt.Color(204, 204, 204));
+        btnRespaldos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/respaldo.png"))); // NOI18N
+        btnRespaldos.setText("    RESPALDO");
+        btnRespaldos.setBorder(null);
+        btnRespaldos.setContentAreaFilled(false);
+        btnRespaldos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRespaldos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProductosActionPerformed(evt);
+                btnRespaldosActionPerformed(evt);
             }
         });
-        lblnombre.add(btnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 200, 40));
+        lblnombre.add(btnRespaldos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 200, 40));
 
         btnRegistros.setBackground(new java.awt.Color(45, 58, 84));
         btnRegistros.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -162,7 +166,7 @@ public void run(){
                 btnReportesActionPerformed(evt);
             }
         });
-        lblnombre.add(btnReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 200, 40));
+        lblnombre.add(btnReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 200, 40));
 
         btnFactura.setBackground(new java.awt.Color(79, 85, 137));
         btnFactura.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -177,7 +181,7 @@ public void run(){
                 btnFacturaActionPerformed(evt);
             }
         });
-        lblnombre.add(btnFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 170, 40));
+        lblnombre.add(btnFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 170, 40));
 
         btnLogOut.setBackground(new java.awt.Color(79, 85, 137));
         btnLogOut.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -222,7 +226,7 @@ public void run(){
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        lblnombre.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, -1, -1));
+        lblnombre.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(90, 72, 148));
 
@@ -237,7 +241,7 @@ public void run(){
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        lblnombre.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, -1, -1));
+        lblnombre.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, -1, -1));
 
         jPanel6.setBackground(new java.awt.Color(90, 72, 148));
 
@@ -252,7 +256,7 @@ public void run(){
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        lblnombre.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, -1, -1));
+        lblnombre.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, -1, -1));
 
         jPanel7.setBackground(new java.awt.Color(90, 72, 148));
 
@@ -274,6 +278,36 @@ public void run(){
         jButton3.setBorder(null);
         jButton3.setContentAreaFilled(false);
         lblnombre.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 120, 80));
+
+        jPanel8.setBackground(new java.awt.Color(90, 72, 148));
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        lblnombre.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, -1, -1));
+
+        btnProductos.setBackground(new java.awt.Color(79, 85, 137));
+        btnProductos.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnProductos.setForeground(new java.awt.Color(204, 204, 204));
+        btnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/productoslista.png"))); // NOI18N
+        btnProductos.setText("  PRODUCTOS");
+        btnProductos.setBorder(null);
+        btnProductos.setContentAreaFilled(false);
+        btnProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProductosActionPerformed(evt);
+            }
+        });
+        lblnombre.add(btnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 200, 40));
 
         getContentPane().add(lblnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 740));
 
@@ -361,11 +395,11 @@ public void run(){
 //        }
     }//GEN-LAST:event_btnCalActionPerformed
 
-    private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
-            Opcion_Producto pro= new Opcion_Producto();
+    private void btnRespaldosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRespaldosActionPerformed
+            VistaPrincipal pro= new VistaPrincipal();
         pro.setVisible(true);
         pro.setLocation(320,110);
-    }//GEN-LAST:event_btnProductosActionPerformed
+    }//GEN-LAST:event_btnRespaldosActionPerformed
 
     private void btnRegistrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrosActionPerformed
         Ingresos ingr= new Ingresos();
@@ -396,6 +430,12 @@ public void run(){
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setState(ICONIFIED);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
+        Productos ingr= new Productos();
+        ingr.setVisible(true);
+        ingr.setLocation(320,110);
+    }//GEN-LAST:event_btnProductosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -446,6 +486,7 @@ public void run(){
     private javax.swing.JButton btnProductos;
     private javax.swing.JButton btnRegistros;
     private javax.swing.JButton btnReportes;
+    private javax.swing.JButton btnRespaldos;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -459,6 +500,7 @@ public void run(){
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHora;
     private javax.swing.JLabel lblcargo;
