@@ -121,6 +121,7 @@ conexion conn=new conexion();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1080, 680));
 
         jPanel1.setBackground(new java.awt.Color(34, 33, 74));
         jPanel1.setPreferredSize(new java.awt.Dimension(1080, 670));
@@ -151,6 +152,11 @@ conexion conn=new conexion();
         txtIdDetalleVenta.setFont(new java.awt.Font("Monospaced", 0, 16)); // NOI18N
         txtIdDetalleVenta.setForeground(new java.awt.Color(34, 33, 74));
         txtIdDetalleVenta.setBorder(null);
+        txtIdDetalleVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdDetalleVentaActionPerformed(evt);
+            }
+        });
         txtIdDetalleVenta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtIdDetalleVentaKeyTyped(evt);
@@ -213,6 +219,9 @@ conexion conn=new conexion();
         txtCant.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCantKeyTyped(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCantKeyReleased(evt);
             }
         });
         jPanel1.add(txtCant, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 140, 30));
@@ -590,16 +599,12 @@ conexion conn=new conexion();
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
         );
 
         pack();
@@ -614,7 +619,17 @@ conexion conn=new conexion();
     }//GEN-LAST:event_txtIdDetalleVentaKeyTyped
 
     private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
-
+      if (txtPrecio.getText().length() >= 7) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        //Validar que solo se puedan escribir numeros
+        char validarN = evt.getKeyChar();
+        if (Character.isLetter(validarN)) {
+            getToolkit().beep();
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(this, "Por Favor: Ingrese solo numeros en el Precio");
+        }
     }//GEN-LAST:event_txtPrecioKeyTyped
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
@@ -687,7 +702,7 @@ conexion conn=new conexion();
         else{
             AgregarF();
             Rfactura();
-//            SumarCant();
+            SumarCant();
             //        txtFactura.setText("");
             txtProducto.setText("");
             txtCliente.setText("");
@@ -707,7 +722,17 @@ conexion conn=new conexion();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtCantKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantKeyTyped
-        // TODO add your handling code here:
+        if (txtCant.getText().length() >= 7) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        //Validar que solo se puedan escribir numeros
+        char validarN = evt.getKeyChar();
+        if (Character.isLetter(validarN)) {
+            getToolkit().beep();
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(this, "Por Favor: Ingrese solo numeros en la Cantidad");
+        }
     }//GEN-LAST:event_txtCantKeyTyped
 
     private void txtProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProductoKeyTyped
@@ -807,7 +832,22 @@ conexion conn=new conexion();
     }//GEN-LAST:event_txtBucarProductoKeyPressed
 
     private void txtClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClienteKeyTyped
-        // TODO add your handling code here:
+        if (txtCliente.getText().length() >= 1) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        //Validar que solo se puedan escribir numeros
+        char validarN = evt.getKeyChar();
+        if (Character.isLetter(validarN)) {
+            getToolkit().beep();
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(this, "Por Favor: Ingrese el Id del cliente, puede visualizarlo en la tabla");
+        } else if ((int) evt.getKeyChar() >= 32 && (int) evt.getKeyChar() <= 47  ||
+                (int) evt.getKeyChar()>=58 && (int) evt.getKeyChar()<=255){
+            getToolkit().beep();
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(this, "Por Favor: Ingrese el Id del cliente, puede visualizarlo en la tabla");
+        }
     }//GEN-LAST:event_txtClienteKeyTyped
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
@@ -866,11 +906,31 @@ conexion conn=new conexion();
     }//GEN-LAST:event_txtFechaActionPerformed
 
     private void txtFechaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFechaKeyTyped
-        // TODO add your handling code here:
+        if (txtFecha.getText().length() >= 8) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        //Validar que solo se puedan escribir numeros
+        char validarN = evt.getKeyChar();
+        if (Character.isLetter(validarN)) {
+            getToolkit().beep();
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(this, "Por Favor: Ingrese la fecha con el siguiente formato 00/00/00");
+        } 
     }//GEN-LAST:event_txtFechaKeyTyped
 
     private void txtDescuentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescuentoKeyTyped
-        // TODO add your handling code here:
+        if (txtDescuento.getText().length() >= 7) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        //Validar que solo se puedan escribir numeros
+        char validarN = evt.getKeyChar();
+        if (Character.isLetter(validarN)) {
+            getToolkit().beep();
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(this, "Por Favor: Ingrese solo numeros en el Decuento");
+        }
     }//GEN-LAST:event_txtDescuentoKeyTyped
 
     private void verClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verClienteActionPerformed
@@ -923,6 +983,14 @@ conexion conn=new conexion();
         }
         
     }//GEN-LAST:event_TablaFacturaMouseClicked
+
+    private void txtIdDetalleVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdDetalleVentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdDetalleVentaActionPerformed
+
+    private void txtCantKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCantKeyReleased
        public void ListarProducto(){
          String sql="select id_producto,nombre_producto,nombre_marca,stock,precio_venta from producto\n" +
                         "inner join marca on marca.id_marca=producto.id_marca";
@@ -976,8 +1044,8 @@ conexion conn=new conexion();
                stockact=txtStockActual.getText();
                
              for (int i = 0; i < TablaRegistros.getRowCount(); i++) {
-                   String stock=TablaRegistros.getValueAt(i, 5).toString();
-                   String ide=TablaRegistros.getValueAt(i, 1).toString();
+                   String stock=TablaRegistros.getValueAt(i, 6).toString();
+                   String ide=TablaRegistros.getValueAt(i, 0).toString();
                String sql="update producto set stock='"+stock+"' where id_producto="+ide;
          if (stockact.equals("")) {
              javax.swing.JOptionPane.showMessageDialog(null, "No deben haber campos vacios");
